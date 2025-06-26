@@ -417,23 +417,23 @@ body {
     const duration = document.getElementById("duration");
     const monthlyPayment = document.getElementById("monthlyPayment");
 
-    function updateValues(value) {
-      const amount = parseInt(value);
-      const interest = 0.1;
-      let months = 6;
-      if (amount > 70000) months = 12;
-      if (amount > 150000) months = 24;
-      if (amount > 220000) months = 30;
+   function updateValues(value) {
+  const amount = parseInt(value);
+  const interest = 0.07; // 7% interest
+  let months = 6;
+  if (amount > 70000) months = 12;
+  if (amount > 150000) months = 24;
+  if (amount > 220000) months = 30;
 
-      const total = amount + amount * interest;
-      const monthly = total / months;
+  const total = amount + amount * interest;
+  const monthly = total / months;
 
-      loanAmount.textContent = amount.toLocaleString();
-      repaymentAmount.textContent = Math.round(total).toLocaleString();
-      interestRate.textContent = "10%";
-      duration.textContent = months;
-      monthlyPayment.textContent = Math.round(monthly).toLocaleString();
-    }
+  loanAmount.textContent = amount.toLocaleString();
+  repaymentAmount.textContent = Math.round(total).toLocaleString();
+  interestRate.textContent = "7%"; // Show updated interest rate in UI
+  duration.textContent = months;
+  monthlyPayment.textContent = Math.round(monthly).toLocaleString();
+}
 
     range.addEventListener("input", (e) => {
       updateValues(e.target.value);
